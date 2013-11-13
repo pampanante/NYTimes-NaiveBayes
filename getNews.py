@@ -1,3 +1,10 @@
+#!/usr/bin/python
+
+'''
+Python script to fetch 2000 most recent articles from New York Times for 5 categories 
+Author: Vipul Raheja (vr2337@columbia.edu)
+'''
+
 import csv
 import json
 import requests
@@ -20,12 +27,10 @@ def writeTSV(newsList, category):
 			writer.writerow(tup)
 
 def storeNews(newsList, newsJSONContent):
-#	print newsJSONContent
 	newsList.append([newsJSONContent["web_url"].encode('utf-8'),
 		newsJSONContent["headline"]["main"].encode('utf-8'),
 		newsJSONContent["lead_paragraph"].encode('utf-8')])
 
-categories = ['World']
 for category in categories:
 	num_articles = 0
 	page = 0
